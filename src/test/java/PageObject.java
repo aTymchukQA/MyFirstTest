@@ -3,6 +3,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -31,6 +32,7 @@ public class PageObject {
         homePage.getLoginButton().click();
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login("alyona", "some@email.com");
+        Assert.assertTrue(loginPage.getAllertText().contains("Сталася помилка:"));
     }
 
     private void openIkea () {

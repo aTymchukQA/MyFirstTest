@@ -15,19 +15,30 @@ public class LoginPage extends AbstractPage {
     @FindBy (id = "login-form-submit")
     WebElement loginForm;
 
+    @FindBy (xpath = "//*[@role='alertdialog']")
+    WebElement alert;
+
+    public String getAllertText () {
+        return alert.getText();
+    }
+
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
     public void login (String login, String password) {
+        sleepFewSeconds();
+        loginField.sendKeys(login);
+        passField.sendKeys(password);
+        submit();
+    }
+
+    private void sleepFewSeconds() {
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        loginField.sendKeys(login);
-        passField.sendKeys(password);
-        submit();
     }
 
     public void submit () {
