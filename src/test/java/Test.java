@@ -16,8 +16,19 @@ public class Test {
 
     @org.testng.annotations.Test
     public void testSumm() {
+        User myUser = User.builder()
+                .age(20)
+                .name("Jane")
+                .isRegistered(true)
+                .build();
         myFirstTest = new MyFirstTest();
         Assert.assertEquals(myFirstTest.summ(2, 2), 4, errorMessage());
+
+        String numbers = "0123456";
+        StringBuilder sb = new StringBuilder(numbers);
+
+        sb.append("Hello");
+
     }
 
     @org.testng.annotations.Test

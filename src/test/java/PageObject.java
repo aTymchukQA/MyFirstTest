@@ -32,7 +32,7 @@ public class PageObject {
         homePage.getLoginButton().click();
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login("alyona", "some@email.com");
-        Assert.assertTrue(loginPage.getAllertText().contains("Сталася помилка:"));
+        Assert.assertTrue(loginPage.getAllertText().contains("Сталася помилка"));
     }
 
     private void openIkea () {
