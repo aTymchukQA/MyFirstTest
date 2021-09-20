@@ -1,21 +1,23 @@
+import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverFactory {
 
-    public WebDriver getDriver(String browserName) {
+    public void getDriver() {
         WebDriver driver;
 
+        String browserName = System.getProperty("browser");
+
         if (browserName.equals("Chrome")) {
-            driver = new ChromeDriver();
+            //driver = new ChromeDriver();
+            Configuration.browser = browserName;
         }
         else if (browserName.equals("Firefox")) {
-            driver = new FirefoxDriver();
+            Configuration.browser = browserName;
         }
         else driver = new ChromeDriver();
 
-        return driver;
     }
 
 }
