@@ -1,1 +1,14 @@
+AutomationPracticeHeader.class
+PageObject.class
+SelenideTests.class
+GoogleHomePage.class
 Test.class
+TestWithXPath.class
+AbstractPage.class
+RestTest.class
+DriverFactory.class
+LoginPage.class
+HomePage.class
+UITest.class
+AddToCardTest.class
+TestUtils.class
