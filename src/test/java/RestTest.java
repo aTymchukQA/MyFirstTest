@@ -1,9 +1,11 @@
+import com.codeborne.selenide.Selenide;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.Argument;
 import io.restassured.specification.RequestSpecification;
 import org.json.JSONObject;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.Date;
@@ -13,6 +15,16 @@ import static org.hamcrest.core.Is.is;
 
 public class RestTest {
 
+    @DataProvider (name = "links")
+    public Object [][] dp() {
+        return new Object[][] {{"http://google.com"}, {"http://google.ua"}};
+    }
+
+    @Test (dataProvider = "links")
+    public void uiTest (String link) {
+        Selenide.open(link);
+    }
+
     @Test
     public void firstRestTest (){
         RestAssured.when()
@@ -21,6 +33,7 @@ public class RestTest {
                 .and().body("args.foo1", is("bar1"))
                 .and().body("args.foo2", is("bar2"));
     }
+
 
     @Test
     public void myPost() {
